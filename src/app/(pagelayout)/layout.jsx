@@ -4,7 +4,7 @@ import React, { Suspense } from "react";
 
 const pageLayout = ({ children }) => {
   return (
-    <div className=" min-h-full w-4/6 ">
+    <div className=" min-h-full lg:w-4/6  w-full">
       <Suspense fallback={<LoadingUI />}>{children}</Suspense>
     </div>
   );

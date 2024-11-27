@@ -2,7 +2,7 @@ import MovieListSection from "@/components/MovieListSection";
 import { fetchFromApi } from "@/services/fetchFromAPi";
 import React from "react";
 
-const page = async () => {
+const TVShows = async () => {
   const movieList = await fetchFromApi(`tv/popular?language=en-US&page=1`);
   console.log(movieList);
   return (
@@ -14,4 +14,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default TVShows;
