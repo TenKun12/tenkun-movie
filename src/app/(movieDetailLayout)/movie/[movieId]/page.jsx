@@ -13,7 +13,7 @@ const MovieDetail = async ({ params }) => {
   return (
     <div className="w-full flex flex-col items-center">
       <Banner detail={movieDetail} />
-      <DetailMovie cast={movieDetail.credits.cast.slice(0, 10)} />
+      <DetailMovie cast={movieDetail?.credits?.cast?.slice(0, 10)} />
     </div>
   );
 };
