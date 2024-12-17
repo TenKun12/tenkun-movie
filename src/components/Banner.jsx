@@ -63,7 +63,7 @@ const Banner = ({ detail }) => {
             <div className="space-y-2">
               <div className="font-bold text-xl text-white py-1">Overview</div>
               <div className="text-base text-white/80">
-                {detail?.overview.length > 500
+                {detail?.overview?.length > 500
                   ? `${detail.overview.slice(0, 500)} ...`
                   : detail.overview}
               </div>
