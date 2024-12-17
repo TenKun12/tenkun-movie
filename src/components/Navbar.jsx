@@ -11,7 +11,7 @@ const Navbar = () => {
         <Link href={"/"} className="text-amber-500 font-bold text-2xl">
           TENKUN
         </Link>
-        <div className="flex text-white w-1/2 items-center z-20 ">
+        <div className="flex text-white w-full lg:w-1/2 items-center z-20 ">
           <input
             onFocus={() => {
               setIsInputFocused(true);
@@ -26,9 +26,9 @@ const Navbar = () => {
             <Search size={20} color="white" />
           </button>
         </div>
-        <div className="text-white flex space-x-5 ">
+        <div className="text-white lg:flex space-x-5 hidden  ">
           <Link href={"/"}>Home</Link>
-          <Link href={"/movies"}>Movies</Link>
+          <Link href={"/movies/pages/1"}>Movies</Link>
           <Link href={"/tv-shows"}>Tv Shows</Link>
 
           <Link href={"#"}>

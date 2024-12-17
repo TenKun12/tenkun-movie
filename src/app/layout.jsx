@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Suspense } from "react";
 import LoadingUI from "@/components/LoadingUI";
+import Footer from "@/components/Footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
           <Navbar />
 
           {children}
+          <Footer />
         </div>
       </body>
     </html>

@@ -4,6 +4,8 @@ import Image from "next/image";
 import React from "react";
 
 const Banner = ({ detail }) => {
+  const date = detail?.release_date || detail?.first_air_date;
+  // console.log(detail?.overview.length);
   return (
     <div
       style={{
@@ -12,13 +14,6 @@ const Banner = ({ detail }) => {
       }}
       className={`h-[30rem] bg-cover flex justify-center items-center  overflow-hidden `}
     >
-      {/* <Image
-        src={`https://image.tmdb.org/t/p/w500${detail?.backdrop_path}`}
-        width={1000}
-        className="w-full  relative"
-        height={1000}
-        alt="poster"
-      /> */}
       <div className="h-full bg-black/80 w-full flex justify-center text-white/70">
         <div className="  w-4/6 h-full  flex items-center ">
           {/* s */}
@@ -32,23 +27,25 @@ const Banner = ({ detail }) => {
           <div className="space-y-5">
             <div className="flex items-end space-x-5">
               <div className="text-4xl font-bold text-white">
-                {detail?.original_title}
+                {detail?.original_title || detail?.name}
               </div>
               <div className="text-xl font-semibold text-white/70">
-                {getYear(detail?.release_date)}
+                {getYear(date) || "hello"}
               </div>
             </div>
             <div className="flex space-x-5 items-center">
               <div className="flex space-x-1">
                 <Calendar color="yellow" />
 
-                <div>{formatDate(detail?.release_date)}</div>
+                <div>{formatDate(date)}</div>
               </div>
               <div className="">*</div>
-              <div className="flex space-x-1">
-                <Clock />
-                <div>{toHourMinutes(detail?.runtime)}</div>
-              </div>
+              {detail?.runtime && (
+                <div className="flex space-x-1">
+                  <Clock />
+                  <div>{toHourMinutes(detail?.runtime)}</div>
+                </div>
+              )}
             </div>
             <div className="flex items-center space-x-2">
               <div className="flex">
@@ -65,7 +62,11 @@ const Banner = ({ detail }) => {
             </div>
             <div className="space-y-2">
               <div className="font-bold text-xl text-white py-1">Overview</div>
-              <div className="text-base text-white/80">{detail?.overview}</div>
+              <div className="text-base text-white/80">
+                {detail?.overview.length > 500
+                  ? `${detail.overview.slice(0, 500)} ...`
+                  : detail.overview}
+              </div>
               <div className="flex space-x-3">
                 {detail?.genres?.map((item) => (
                   <button

@@ -1,6 +1,7 @@
 import LoadingUI from "@/components/LoadingUI";
 import MovieCard from "@/components/MovieCard";
 import MovieListSection from "@/components/MovieListSection";
+import PaginationNumber from "@/components/PaginationNumber";
 import { fetchFromApi } from "@/services/fetchFromAPi";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,7 +17,7 @@ export default async function Home() {
   // ];
   return (
     <div className="text-white mt-5 mb-10 ">
-      <div className="flex justify-between py-2">
+      <div className="flex justify-between py-2 px-5 lg:px-0">
         <div className="font-bold text-base">TRENDING TODAY</div>
         <div className="flex space-x-5">
           <Link href={"#"} className="text-yellow-400 underline">

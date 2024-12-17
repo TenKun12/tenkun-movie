@@ -3,10 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const MovieCard = ({ detail }) => {
+const MovieCard = ({ detail, type = "movie" }) => {
+  // console.log(detail);
   return (
     <Link
-      href={`/movie/${detail?.id}`}
+      href={`/${type}/${detail?.id}`}
       className=" aspect-[4/6] bg-white/40 relative group hover:scale-[1.03] transition-all hover:duration-0"
     >
       <Image
