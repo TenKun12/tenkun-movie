@@ -12,19 +12,19 @@ const Banner = ({ detail }) => {
         backgroundPosition: "center",
         backgroundImage: `url(https://image.tmdb.org/t/p/original${detail?.backdrop_path}) `,
       }}
-      className={`h-[30rem] bg-cover flex justify-center items-center  overflow-hidden `}
+      className={`md:h-[30rem] bg-cover flex justify-center items-center  overflow-hidden `}
     >
       <div className="h-full bg-black/80 w-full flex justify-center text-white/70">
-        <div className="  w-4/6 h-full  flex items-center ">
+        <div className="  lg:w-4/6 h-full  flex-col md:flex-row flex md:items-center ">
           {/* s */}
           <Image
             src={`https://image.tmdb.org/t/p/w500${detail?.poster_path}`}
-            width={10000}
-            className="w-auto h-full p-5"
-            height={10000}
+            width={1000}
+            className="lg:w-auto lg:h-full p-5"
+            height={1000}
             alt="poster"
           />
-          <div className="space-y-5">
+          <div className="space-y-5 p-3">
             <div className="flex items-end space-x-5">
               <div className="text-4xl font-bold text-white">
                 {detail?.original_title || detail?.name}

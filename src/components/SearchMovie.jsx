@@ -40,8 +40,12 @@ const SearchMovie = () => {
     console.log(search);
   };
   return (
-    <div className="w-full lg:w-1/2 relative">
-      <div className="flex text-white  items-center relative z-50 ">
+    <div
+      className={`w-full lg:w-1/2  ${
+        isInputFocused ? "fixed right-0 left-0 px-5" : "relative"
+      }`}
+    >
+      <div className="flex text-white  w-full  items-center relative z-50 ">
         <input
           onChange={(e) => {
             setSearch(e.target.value);
@@ -58,7 +62,9 @@ const SearchMovie = () => {
             }
           }}
           type="text"
-          className="w-full group-focus:border-blue-400 bg-black border-r-0 bg-transparent border border-white/30 rounded-l-full px-5 py-2 focus:border-blue-500 outline-none hover:outline-none"
+          className={`w-full group-focus:border-blue-400 bg-black border-r-0${
+            isInputFocused ? "bg-black" : "bg-transparent"
+          }  border border-white/30 rounded-l-full px-5 py-2 focus:border-blue-500 outline-none hover:outline-none`}
         />
         <button
           onClick={handleSearch}
