@@ -1,3 +1,4 @@
+"use server";
 const options = {
   method: "GET",
   headers: {
