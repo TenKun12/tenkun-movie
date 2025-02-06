@@ -5,7 +5,7 @@ import { fetchFromApi } from "@/services/fetchFromAPi";
 import React from "react";
 
 const MovieDetail = async ({ params }) => {
-  const movieId = params.movieId;
+  const { movieId } = await params;
   const movieDetail = await fetchFromApi(
     `movie/${movieId}?language=en-US&&append_to_response=credits`
   );
