@@ -4,13 +4,14 @@ import { fetchFromApi } from "@/services/fetchFromAPi";
 import { Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const SearchMovie = () => {
   const [isInputFocused, setIsInputFocused] = useState(false);
   const [moviePlaceholder, setMoviePlaceholder] = useState([]);
   const [search, setSearch] = useState();
   const searchDebounce = useDebounce(search, 200);
+  const inputRef = useRef();
 
   useEffect(() => {
     const searchApi = async () => {
@@ -37,16 +38,22 @@ const SearchMovie = () => {
   console.log(moviePlaceholder);
 
   const handleSearch = async () => {
-    console.log(search);
+    if (!search) {
+      setIsInputFocused(true);
+      inputRef?.current?.focus();
+    }
+    console.log(inputRef.current);
   };
   return (
     <div
-      className={`w-full lg:w-1/2  ${
+      className={`w-full  lg:w-1/2  ${
         isInputFocused ? "fixed right-0 left-0 px-5" : "relative"
       }`}
     >
-      <div className="flex text-white  w-full  items-center relative z-50 ">
+      <div className="flex text-white w-full bg-black justify-end w-full  items-center relative z-50 ">
         <input
+          autoFocus
+          ref={inputRef}
           onChange={(e) => {
             setSearch(e.target.value);
           }}
@@ -62,13 +69,17 @@ const SearchMovie = () => {
             }
           }}
           type="text"
-          className={`w-full group-focus:border-blue-400 bg-black border-r-0${
-            isInputFocused ? "bg-black" : "bg-transparent"
+          className={`w-full ${
+            isInputFocused ? "flex" : "hidden"
+          } md:flex group-focus:border-blue-400 bg-black border-r-0${
+            isInputFocused ? "bg-black" : "bg-black"
           }  border border-white/30 rounded-l-full px-5 py-2 focus:border-blue-500 outline-none hover:outline-none`}
         />
         <button
           onClick={handleSearch}
-          className="border group-focus:border-blue-400 group border-white/30 p-2.5 rounded-r-full  px-5"
+          className={`border group-focus:border-blue-400 group border-white/30 p-2.5 rounded-r-full ${
+            isInputFocused ? "rounded-l-none px-5" : "rounded-l-full px-2.5"
+          } rounded-l-full md:rounded-l-none  hover:bg-white/20   md:px-5`}
         >
           <Search size={20} color="white" />
         </button>
