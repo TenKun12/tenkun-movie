@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import ReactPlayer from "react-player";
 
 const VideoDetail = ({ VideoDetail }) => {
   const videoList = VideoDetail?.results;
