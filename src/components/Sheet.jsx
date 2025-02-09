@@ -14,7 +14,7 @@ const Sheet = ({ showSheet, setShowSheet }) => {
     >
       <div
         onClick={(e) => e.stopPropagation()} // Mencegah klik di dalam sheet menutupnya
-        className={`w-[50%] bg-gray-900 h-full transition-transform duration-300 ${
+        className={`w-[80%] md:w-[50%] bg-gray-900 h-full transition-transform duration-300 ${
           showSheet ? "translate-x-0" : "-translate-x-full"
         }`}
       >
