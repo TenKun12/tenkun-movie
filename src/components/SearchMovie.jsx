@@ -38,7 +38,7 @@ const SearchMovie = () => {
   console.log(moviePlaceholder);
 
   const handleSearch = async () => {
-    if (!search) {
+    if (!search || !isInputFocused) {
       setIsInputFocused(true);
       inputRef?.current?.focus();
     }
@@ -46,13 +46,13 @@ const SearchMovie = () => {
   };
   return (
     <div
-      className={`w-full  lg:w-1/2  ${
-        isInputFocused ? "fixed right-0 left-0 px-5" : "relative"
+      className={`w-full  lg:w-1/2  pr-5 md:pr-0  md:relative ${
+        isInputFocused ? "left-0 fixed " : ""
       }`}
     >
-      <div className="flex text-white w-full bg-black justify-end w-full  items-center relative z-50 ">
+      <div className="flex text-white  bg-black justify-end w-full  items-center relative z-50 ">
         <input
-          autoFocus
+          // autoFocus
           ref={inputRef}
           onChange={(e) => {
             setSearch(e.target.value);

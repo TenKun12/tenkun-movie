@@ -6,6 +6,7 @@ import React from "react";
 const Banner = ({ detail }) => {
   const date = detail?.release_date || detail?.first_air_date;
   // console.log(detail?.overview.length);
+  console.log({ detail });
   return (
     <div
       style={{

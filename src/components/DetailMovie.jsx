@@ -1,7 +1,8 @@
 import Image from "next/image";
 import React from "react";
+import VideoDetail from "./VideoDetail";
 
-const DetailMovie = ({ cast }) => {
+const DetailMovie = ({ cast, movieDetail }) => {
   return (
     <div className="w-4/6 mt-5 text-white">
       <div>
@@ -20,6 +21,7 @@ const DetailMovie = ({ cast }) => {
           ))}
         </div>
       </div>
+      <VideoDetail VideoDetail={movieDetail?.videos} />
     </div>
   );
 };

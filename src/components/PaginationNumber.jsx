@@ -4,7 +4,7 @@ import React from "react";
 const PaginationNumber = ({ currentPage }) => {
   const page = [1, 2, 3, 4, 5];
 
-  console.log({ currentPage });
+  // console.log({ currentPage });
   return (
     <div className=" justify-end flex ">
       <div className="flex">
